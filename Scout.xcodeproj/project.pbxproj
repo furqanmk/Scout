@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D0824617F769D76C9394A1A8 /* Pods_Scout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3786A84615D76EAA41091D03 /* Pods_Scout.framework */; };
 		D1B661851EF13D5800C911D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B661841EF13D5800C911D7 /* AppDelegate.swift */; };
 		D1B661871EF13D5800C911D7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B661861EF13D5800C911D7 /* ViewController.swift */; };
 		D1B6618A1EF13D5800C911D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1B661881EF13D5800C911D7 /* Main.storyboard */; };
@@ -34,6 +35,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3786A84615D76EAA41091D03 /* Pods_Scout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Scout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9EF076E799DBA5CDEFBC26D3 /* Pods-Scout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scout.release.xcconfig"; path = "Pods/Target Support Files/Pods-Scout/Pods-Scout.release.xcconfig"; sourceTree = "<group>"; };
+		B278305AAE65070F9993BA4C /* Pods-Scout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scout.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Scout/Pods-Scout.debug.xcconfig"; sourceTree = "<group>"; };
 		D1B661811EF13D5800C911D7 /* Scout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1B661841EF13D5800C911D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1B661861EF13D5800C911D7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +58,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0824617F769D76C9394A1A8 /* Pods_Scout.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -74,6 +79,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		50AD5A5B181B01AEF86D8CDB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B278305AAE65070F9993BA4C /* Pods-Scout.debug.xcconfig */,
+				9EF076E799DBA5CDEFBC26D3 /* Pods-Scout.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		9F199C30FC2E4226CA2EF34D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3786A84615D76EAA41091D03 /* Pods_Scout.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D1B661781EF13D5800C911D7 = {
 			isa = PBXGroup;
 			children = (
@@ -81,6 +103,8 @@
 				D1B661981EF13D5900C911D7 /* ScoutTests */,
 				D1B661A31EF13D5900C911D7 /* ScoutUITests */,
 				D1B661821EF13D5800C911D7 /* Products */,
+				50AD5A5B181B01AEF86D8CDB /* Pods */,
+				9F199C30FC2E4226CA2EF34D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -132,9 +156,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D1B661A91EF13D5900C911D7 /* Build configuration list for PBXNativeTarget "Scout" */;
 			buildPhases = (
+				091599629833B6BA39FB799E /* [CP] Check Pods Manifest.lock */,
 				D1B6617D1EF13D5800C911D7 /* Sources */,
 				D1B6617E1EF13D5800C911D7 /* Frameworks */,
 				D1B6617F1EF13D5800C911D7 /* Resources */,
+				2F05158B778B6734FD04039D /* [CP] Embed Pods Frameworks */,
+				5C25A249B967E7468DBE710F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -253,6 +280,54 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		091599629833B6BA39FB799E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		2F05158B778B6734FD04039D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Scout/Pods-Scout-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5C25A249B967E7468DBE710F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Scout/Pods-Scout-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D1B6617D1EF13D5800C911D7 /* Sources */ = {
@@ -412,6 +487,7 @@
 		};
 		D1B661AA1EF13D5900C911D7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B278305AAE65070F9993BA4C /* Pods-Scout.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Scout/Info.plist;
@@ -424,6 +500,7 @@
 		};
 		D1B661AB1EF13D5900C911D7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9EF076E799DBA5CDEFBC26D3 /* Pods-Scout.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Scout/Info.plist;
