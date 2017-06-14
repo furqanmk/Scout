@@ -15,6 +15,10 @@
 		D1B6618F1EF13D5800C911D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1B6618D1EF13D5800C911D7 /* LaunchScreen.storyboard */; };
 		D1B6619A1EF13D5900C911D7 /* ScoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B661991EF13D5900C911D7 /* ScoutTests.swift */; };
 		D1B661A51EF13D5900C911D7 /* ScoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B661A41EF13D5900C911D7 /* ScoutUITests.swift */; };
+		D1B661E11EF14C6D00C911D7 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B661E01EF14C6D00C911D7 /* Car.swift */; };
+		D1B661E41EF14D7D00C911D7 /* String+Scout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B661E31EF14D7D00C911D7 /* String+Scout.swift */; };
+		D1B661E61EF14E3F00C911D7 /* CarMake.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B661E51EF14E3F00C911D7 /* CarMake.swift */; };
+		D1B661E81EF14E4500C911D7 /* CarFuelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B661E71EF14E4500C911D7 /* CarFuelType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +55,10 @@
 		D1B661A01EF13D5900C911D7 /* ScoutUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScoutUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1B661A41EF13D5900C911D7 /* ScoutUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoutUITests.swift; sourceTree = "<group>"; };
 		D1B661A61EF13D5900C911D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1B661E01EF14C6D00C911D7 /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
+		D1B661E31EF14D7D00C911D7 /* String+Scout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Scout.swift"; sourceTree = "<group>"; };
+		D1B661E51EF14E3F00C911D7 /* CarMake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarMake.swift; sourceTree = "<group>"; };
+		D1B661E71EF14E4500C911D7 /* CarFuelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarFuelType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +129,9 @@
 		D1B661831EF13D5800C911D7 /* Scout */ = {
 			isa = PBXGroup;
 			children = (
+				D1B661E21EF14D6D00C911D7 /* Extensions */,
+				D1B661E31EF14D7D00C911D7 /* String+Scout.swift */,
+				D1B661DF1EF14C5A00C911D7 /* Model */,
 				D1B661841EF13D5800C911D7 /* AppDelegate.swift */,
 				D1B661861EF13D5800C911D7 /* ViewController.swift */,
 				D1B661881EF13D5800C911D7 /* Main.storyboard */,
@@ -147,6 +158,23 @@
 				D1B661A61EF13D5900C911D7 /* Info.plist */,
 			);
 			path = ScoutUITests;
+			sourceTree = "<group>";
+		};
+		D1B661DF1EF14C5A00C911D7 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D1B661E01EF14C6D00C911D7 /* Car.swift */,
+				D1B661E51EF14E3F00C911D7 /* CarMake.swift */,
+				D1B661E71EF14E4500C911D7 /* CarFuelType.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		D1B661E21EF14D6D00C911D7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -334,8 +362,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1B661E81EF14E4500C911D7 /* CarFuelType.swift in Sources */,
+				D1B661E61EF14E3F00C911D7 /* CarMake.swift in Sources */,
 				D1B661871EF13D5800C911D7 /* ViewController.swift in Sources */,
+				D1B661E41EF14D7D00C911D7 /* String+Scout.swift in Sources */,
 				D1B661851EF13D5800C911D7 /* AppDelegate.swift in Sources */,
+				D1B661E11EF14C6D00C911D7 /* Car.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
