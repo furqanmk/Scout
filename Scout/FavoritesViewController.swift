@@ -1,43 +1,34 @@
 //
-//  ListViewController.swift
+//  FavoritesViewController.swift
 //  Scout
 //
-//  Created by Furqan on 14/06/2017.
+//  Created by Furqan on 15/06/2017.
 //  Copyright © 2017 Furqan Muhammad Khan. All rights reserved.
 //
 
 import UIKit
 
-private let reuseIdentifier = "CarCell"
+private let reuseIdentifier = "FavoriteCell"
 
-class ListViewController: UICollectionViewController {
+class FavoritesViewController: UICollectionViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        CarCollection.shared.delegate = self
-        CarCollection.shared.fetch()
-    }
-    
     override func viewWillAppear(_ animated: Bool) {
         collectionView?.reloadData()
     }
-}
 
-// UICollectionViewDelegate, UICollectionViewDataSource
-extension ListViewController {
-    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return CarCollection.shared.list.count
+        return CarCollection.shared.favorites.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CarCell
-        cell.car = CarCollection.shared.list[indexPath.item]
+        cell.car = CarCollection.shared.favorites[indexPath.item]
+        cell.indexPath = indexPath
+        cell.favoriteToggleDelegate = self
         return cell
     }
     
@@ -48,11 +39,13 @@ extension ListViewController {
             collectionView.setContentOffset(CGPoint(x: 0, y: offset), animated: true)
         }
     }
+
 }
 
-/// Handles the result of car load
-extension ListViewController: CarCollectionDelegate {
-    func didLoadCars() {
-        collectionView?.reloadData()
+extension FavoritesViewController: FavoriteToggleDelegate {
+    
+    func didToggleFavorite(cell: UICollectionViewCell) {
+        guard let indexPath = collectionView?.indexPath(for: cell) else { return }
+        collectionView?.deleteItems(at: [indexPath])
     }
 }

@@ -22,6 +22,11 @@ class CarCollection {
     // Holds all the cars
     var list: [Car] = [ ]
     
+    // Returns only the favorited cars
+    var favorites: [Car] {
+        return list.filter({ Favorites.ids.contains($0.id!) })
+    }
+    
     // Currently active request
     var request: DownloadRequest<JSON>!
     

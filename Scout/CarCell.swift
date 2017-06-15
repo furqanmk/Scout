@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 
+protocol FavoriteToggleDelegate {
+    func didToggleFavorite(cell: UICollectionViewCell)
+}
+
 class CarCell: UICollectionViewCell {
     
     @IBOutlet private weak var makeLabel: UILabel!
@@ -19,10 +23,15 @@ class CarCell: UICollectionViewCell {
     @IBOutlet private weak var powerLabel: UILabel!
     @IBOutlet private weak var fuelTypeLabel: UILabel!
     @IBOutlet private weak var accidentFreeLabel: UILabel!
+    @IBOutlet weak var favoriteSwitch: UISwitch!
     @IBOutlet private var carImages: [UIImageView]!
     
     @IBOutlet private weak var imageStack: UIStackView!
     @IBOutlet private weak var infoStack: UIStackView!
+    
+    var indexPath: IndexPath?
+    
+    var favoriteToggleDelegate: FavoriteToggleDelegate?
     
     var car: Car? {
         didSet {
@@ -35,6 +44,7 @@ class CarCell: UICollectionViewCell {
                 powerLabel.text = "\(car.powerKW!) KW"
                 fuelTypeLabel.text = car.fuelType?.rawValue
                 accidentFreeLabel.isHidden = !car.accidentFree!
+                favoriteSwitch.isOn = Favorites.ids.contains(car.id!)
                 
                 guard car.imageURLs.count == 4 else {
                     return
@@ -48,6 +58,21 @@ class CarCell: UICollectionViewCell {
         }
     }
     
+    @IBAction func favoriteStateToggled(_ sender: UISwitch) {
+        guard let car = car else {
+            return
+        }
+        
+        if sender.isOn {
+            Favorites.addId(car.id!)
+        } else {
+            Favorites.removeId(car.id!)
+        }
+        
+        favoriteToggleDelegate?.didToggleFavorite(cell: self)
+    }
+    
+    
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
         
@@ -57,6 +82,7 @@ class CarCell: UICollectionViewCell {
         let delta = 1 - ((featuredHeight - frame.height) / (featuredHeight - standardHeight))
         accidentFreeLabel.alpha = delta
         addressLabel.alpha = delta
+        favoriteSwitch.alpha = delta
         imageStack.alpha = delta
         infoStack.alpha = delta
     }

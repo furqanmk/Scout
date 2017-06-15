@@ -8,9 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		D0824617F769D76C9394A1A8 /* Pods_Scout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3786A84615D76EAA41091D03 /* Pods_Scout.framework */; };
+		D136D3941EF2EB480038175C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D136D3931EF2EB480038175C /* Assets.xcassets */; };
+		D136D3961EF308D70038175C /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136D3951EF308D70038175C /* Favorites.swift */; };
+		D1A627B81EF30AFA00BCD7A5 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A627B71EF30AFA00BCD7A5 /* FavoritesViewController.swift */; };
 		D1B661851EF13D5800C911D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B661841EF13D5800C911D7 /* AppDelegate.swift */; };
 		D1B6618A1EF13D5800C911D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1B661881EF13D5800C911D7 /* Main.storyboard */; };
-		D1B6618C1EF13D5800C911D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1B6618B1EF13D5800C911D7 /* Assets.xcassets */; };
 		D1B6618F1EF13D5800C911D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1B6618D1EF13D5800C911D7 /* LaunchScreen.storyboard */; };
 		D1B6619A1EF13D5900C911D7 /* ScoutTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B661991EF13D5900C911D7 /* ScoutTests.swift */; };
 		D1B661A51EF13D5900C911D7 /* ScoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B661A41EF13D5900C911D7 /* ScoutUITests.swift */; };
@@ -56,10 +58,12 @@
 		3786A84615D76EAA41091D03 /* Pods_Scout.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Scout.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EF076E799DBA5CDEFBC26D3 /* Pods-Scout.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scout.release.xcconfig"; path = "Pods/Target Support Files/Pods-Scout/Pods-Scout.release.xcconfig"; sourceTree = "<group>"; };
 		B278305AAE65070F9993BA4C /* Pods-Scout.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Scout.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Scout/Pods-Scout.debug.xcconfig"; sourceTree = "<group>"; };
+		D136D3931EF2EB480038175C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		D136D3951EF308D70038175C /* Favorites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
+		D1A627B71EF30AFA00BCD7A5 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		D1B661811EF13D5800C911D7 /* Scout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1B661841EF13D5800C911D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1B661891EF13D5800C911D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		D1B6618B1EF13D5800C911D7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1B6618E1EF13D5800C911D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1B661901EF13D5800C911D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1B661951EF13D5900C911D7 /* ScoutTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ScoutTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,7 +167,7 @@
 				D1B661FE1EF1659C00C911D7 /* Views */,
 				D1B661FF1EF165AF00C911D7 /* Controllers */,
 				D1B661841EF13D5800C911D7 /* AppDelegate.swift */,
-				D1B6618B1EF13D5800C911D7 /* Assets.xcassets */,
+				D136D3931EF2EB480038175C /* Assets.xcassets */,
 				D1B661901EF13D5800C911D7 /* Info.plist */,
 			);
 			path = Scout;
@@ -194,6 +198,7 @@
 				D1B661FC1EF15D7800C911D7 /* CarCollection.swift */,
 				D1B661E51EF14E3F00C911D7 /* CarMake.swift */,
 				D1B661E71EF14E4500C911D7 /* CarFuelType.swift */,
+				D136D3951EF308D70038175C /* Favorites.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -239,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				D1B662061EF1740E00C911D7 /* ListViewController.swift */,
+				D1A627B71EF30AFA00BCD7A5 /* FavoritesViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -354,7 +360,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1B6618F1EF13D5800C911D7 /* LaunchScreen.storyboard in Resources */,
-				D1B6618C1EF13D5800C911D7 /* Assets.xcassets in Resources */,
+				D136D3941EF2EB480038175C /* Assets.xcassets in Resources */,
 				D1B6618A1EF13D5800C911D7 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -434,9 +440,11 @@
 				D1B661E81EF14E4500C911D7 /* CarFuelType.swift in Sources */,
 				D1B662091EF2C13800C911D7 /* UIImageView+Scout.swift in Sources */,
 				D1B661F61EF1565100C911D7 /* DownloadSettings.swift in Sources */,
+				D1A627B81EF30AFA00BCD7A5 /* FavoritesViewController.swift in Sources */,
 				D1B661E61EF14E3F00C911D7 /* CarMake.swift in Sources */,
 				D1B661F51EF1565100C911D7 /* DownloadRequest.swift in Sources */,
 				D1B662071EF1740E00C911D7 /* ListViewController.swift in Sources */,
+				D136D3961EF308D70038175C /* Favorites.swift in Sources */,
 				D1B661F31EF1565100C911D7 /* DownloadImageManager.swift in Sources */,
 				D1B661E41EF14D7D00C911D7 /* String+Scout.swift in Sources */,
 				D1B661851EF13D5800C911D7 /* AppDelegate.swift in Sources */,
