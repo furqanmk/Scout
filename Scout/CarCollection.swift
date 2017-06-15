@@ -1,5 +1,5 @@
 //
-//  MovieList.swift
+//  CarCollection.swift
 //  Scout
 //
 //  Created by Furqan on 14/06/2017.
@@ -42,11 +42,9 @@ class CarCollection {
                 self?.list.append(car)
             }
             self?.delegate?.didLoadCars()
-            self?.request = nil
         },
-        failure: { [weak self] error in
+        failure: { error in
             print("Error loading movies.")
-            self?.request = nil
         })
     }
     

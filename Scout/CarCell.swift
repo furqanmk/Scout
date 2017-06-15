@@ -1,0 +1,64 @@
+//
+//  CarCell
+//  Scout
+//
+//  Created by Furqan on 14/06/2017.
+//  Copyright © 2017 Furqan Muhammad Khan. All rights reserved.
+//
+
+import Foundation
+import UIKit
+
+class CarCell: UICollectionViewCell {
+    
+    @IBOutlet private weak var makeLabel: UILabel!
+    @IBOutlet private weak var addressLabel: UILabel!
+    @IBOutlet private weak var priceLabel: UILabel!
+    @IBOutlet private weak var firstRegistrationLabel: UILabel!
+    @IBOutlet private weak var mileageLabel: UILabel!
+    @IBOutlet private weak var powerLabel: UILabel!
+    @IBOutlet private weak var fuelTypeLabel: UILabel!
+    @IBOutlet private weak var accidentFreeLabel: UILabel!
+    @IBOutlet private var carImages: [UIImageView]!
+    
+    @IBOutlet private weak var imageStack: UIStackView!
+    @IBOutlet private weak var infoStack: UIStackView!
+    
+    var car: Car? {
+        didSet {
+            if let car = car {
+                makeLabel.text = car.make?.rawValue
+                addressLabel.text = car.address
+                priceLabel.text = "€ \(car.price!)"
+                firstRegistrationLabel.text = car.firstRegistration?.beautified
+                mileageLabel.text = "\(car.mileage!) KM"
+                powerLabel.text = "\(car.powerKW!) KW"
+                fuelTypeLabel.text = car.fuelType?.rawValue
+                accidentFreeLabel.isHidden = !car.accidentFree!
+                
+                guard car.imageURLs.count == 4 else {
+                    return
+                }
+                
+                for i in 0..<4 {
+                    let url = car.imageURLs[i]
+                    carImages[i].setImage(url: url)
+                }
+            }
+        }
+    }
+    
+    override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
+        super.apply(layoutAttributes)
+        
+        let standardHeight = LayoutConstants.Cell.standardHeight
+        let featuredHeight = LayoutConstants.Cell.featuredHeight
+        
+        let delta = 1 - ((featuredHeight - frame.height) / (featuredHeight - standardHeight))
+        accidentFreeLabel.alpha = delta
+        addressLabel.alpha = delta
+        imageStack.alpha = delta
+        infoStack.alpha = delta
+    }
+    
+}

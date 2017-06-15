@@ -1,5 +1,5 @@
 //
-//  String+Scout.swift
+//  Date+Scout.swift
 //  Scout
 //
 //  Created by Furqan on 14/06/2017.
@@ -8,10 +8,10 @@
 
 import Foundation
 
-extension String {
-    var scoutDate: Date? {
+extension Date {
+    var beautified: String? {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "M/yyyy"
-        return dateFormatter.date(from: self)
+        dateFormatter.dateFormat = "MMM, yy"
+        return dateFormatter.string(from: self)
     }
 }
