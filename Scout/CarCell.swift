@@ -15,6 +15,8 @@ protocol FavoriteToggleDelegate {
 
 class CarCell: UICollectionViewCell {
     
+    @IBOutlet weak var backdropView: UIView!
+    
     @IBOutlet private weak var makeLabel: UILabel!
     @IBOutlet private weak var addressLabel: UILabel!
     @IBOutlet private weak var priceLabel: UILabel!
@@ -46,8 +48,8 @@ class CarCell: UICollectionViewCell {
                 fuelTypeLabel.text = car.fuelType?.rawValue
                 accidentFreeLabel.isHidden = !car.accidentFree!
                 favoriteSwitch.isOn = Favorites.ids.contains(car.id!)
-                self.addressLabel.text = car.address
-
+                addressLabel.text = car.address
+                
                 guard car.imageURLs.count == 4 else {
                     return
                 }

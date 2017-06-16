@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12118" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sSa-ke-w5U">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="sSa-ke-w5U">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -13,14 +13,14 @@
         <scene sceneID="tKW-Ex-hQO">
             <objects>
                 <collectionViewController id="7Ml-cx-lOa" customClass="ListViewController" customModule="Scout" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" prefetchingEnabled="NO" id="HvZ-MJ-dYB">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" prefetchingEnabled="NO" id="HvZ-MJ-dYB">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewLayout key="collectionViewLayout" id="Zw9-y6-m5T" customClass="Layout" customModule="Scout" customModuleProvider="target"/>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CarCell" id="rPD-rT-qbf" customClass="CarCell" customModule="Scout" customModuleProvider="target">
-                                <rect key="frame" x="56" y="0.0" width="270" height="260"/>
+                                <rect key="frame" x="52.5" y="0.0" width="270" height="260"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="270" height="260"/>
@@ -171,7 +171,7 @@
                                                     </connections>
                                                 </switch>
                                             </subviews>
-                                            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <constraints>
                                                 <constraint firstItem="PPb-6H-CDS" firstAttribute="leading" secondItem="NkS-jJ-mKw" secondAttribute="leading" constant="20" id="1SB-oD-hqk"/>
                                                 <constraint firstItem="Y1o-1C-x7l" firstAttribute="top" secondItem="uj4-n9-2Bt" secondAttribute="bottom" constant="16" id="5Q5-AA-4ox"/>
@@ -204,6 +204,7 @@
                                 <connections>
                                     <outlet property="accidentFreeLabel" destination="PPb-6H-CDS" id="NLm-vZ-8xJ"/>
                                     <outlet property="addressLabel" destination="JVd-pC-c2U" id="rCj-xu-JT2"/>
+                                    <outlet property="backdropView" destination="NkS-jJ-mKw" id="Kbe-yC-aDI"/>
                                     <outlet property="favoriteSwitch" destination="DB6-1w-57l" id="Tcd-pX-7by"/>
                                     <outlet property="firstRegistrationLabel" destination="Pji-2D-mQl" id="j3v-pK-R7U"/>
                                     <outlet property="fuelTypeLabel" destination="lCJ-jy-TxJ" id="Fml-40-eX8"/>
@@ -256,7 +257,7 @@
         <scene sceneID="5zM-jb-LJ9">
             <objects>
                 <collectionViewController id="WjE-rX-EeN" customClass="FavoritesViewController" customModule="Scout" customModuleProvider="target" sceneMemberID="viewController">
-                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" prefetchingEnabled="NO" id="zM1-hO-sJ6">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" prefetchingEnabled="NO" id="zM1-hO-sJ6">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

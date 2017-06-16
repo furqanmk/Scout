@@ -22,9 +22,8 @@ class ListViewController: UICollectionViewController {
         // Sets up pull-to-refresh
         setupPullToRefresh()
         
-        // Sets badge
+        // Sets badge color
         tabBarController?.tabBar.items?.last?.badgeColor = Theme.orange
-        showBadgeUpdated()
         
         // Listens to favorite notification to update the badge
         NotificationCenter.default.addObserver(forName: NSNotification.Name("Notification"), object: nil, queue: nil) { (notification) in
@@ -78,9 +77,20 @@ extension ListViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let car = CarCollection.shared.list[indexPath.item]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CarCell
         cell.indexPath = indexPath
-        cell.car = CarCollection.shared.list[indexPath.item]
+        cell.car = car
+        
+        // Grays out cars that are not accident-free
+        if !car.accidentFree! {
+            cell.backdropView.backgroundColor = Theme.gray
+            cell.favoriteSwitch.isEnabled = false
+        } else {
+            cell.backdropView.backgroundColor = UIColor.white
+            cell.favoriteSwitch.isEnabled = true
+        }
+        
         return cell
     }
     
@@ -101,7 +111,7 @@ extension ListViewController: CarCollectionDelegate {
                 NotificationBar.sharedBar.hide()
             }
         }
-        
+        showBadgeUpdated()
         collectionView?.reloadData()
     }
 }
