@@ -17,10 +17,26 @@ class ListViewController: UICollectionViewController {
         
         CarCollection.shared.delegate = self
         CarCollection.shared.fetch()
+        
+        setupPullToRefresh()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         collectionView?.reloadData()
+    }
+    
+    /// Allows pull to refresh
+    func setupPullToRefresh() {
+        let spring = collectionView?.addSpringRefresh(position: .top, actionHandlere: { _ in
+            
+            NotificationBar.sharedBar.show(message: "Loading...", background: Theme.orange, permenantly: true, loadingIndicator: true, completion: nil)
+            
+            CarCollection.shared.fetch()
+        })
+        spring?.unExpandedColor = UIColor.gray
+        spring?.expandedColor = Theme.blue
+        spring?.readyColor = Theme.orange
+        spring?.affordanceMargin = 0
     }
 }
 
@@ -37,6 +53,8 @@ extension ListViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CarCell
+        
+        print(indexPath.item)
         cell.car = CarCollection.shared.list[indexPath.item]
         return cell
     }
@@ -53,6 +71,10 @@ extension ListViewController {
 /// Handles the result of car load
 extension ListViewController: CarCollectionDelegate {
     func didLoadCars() {
+        NotificationBar.sharedBar.hide()
         collectionView?.reloadData()
+        print("TOTAL")
+        print(CarCollection.shared.list.count)
+        print("IndexPath Items")
     }
 }

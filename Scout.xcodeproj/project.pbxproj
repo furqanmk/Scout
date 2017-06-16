@@ -11,6 +11,10 @@
 		D136D3941EF2EB480038175C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D136D3931EF2EB480038175C /* Assets.xcassets */; };
 		D136D3961EF308D70038175C /* Favorites.swift in Sources */ = {isa = PBXBuildFile; fileRef = D136D3951EF308D70038175C /* Favorites.swift */; };
 		D1A627B81EF30AFA00BCD7A5 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A627B71EF30AFA00BCD7A5 /* FavoritesViewController.swift */; };
+		D1A627BC1EF31BA500BCD7A5 /* SpringExpandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A627BA1EF31BA500BCD7A5 /* SpringExpandView.swift */; };
+		D1A627BD1EF31BA500BCD7A5 /* SpringRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A627BB1EF31BA500BCD7A5 /* SpringRefresh.swift */; };
+		D1A627C01EF31C7300BCD7A5 /* NotificationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A627BF1EF31C7300BCD7A5 /* NotificationBar.swift */; };
+		D1A627C21EF31CD100BCD7A5 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1A627C11EF31CD100BCD7A5 /* Theme.swift */; };
 		D1B661851EF13D5800C911D7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B661841EF13D5800C911D7 /* AppDelegate.swift */; };
 		D1B6618A1EF13D5800C911D7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1B661881EF13D5800C911D7 /* Main.storyboard */; };
 		D1B6618F1EF13D5800C911D7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1B6618D1EF13D5800C911D7 /* LaunchScreen.storyboard */; };
@@ -61,6 +65,10 @@
 		D136D3931EF2EB480038175C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D136D3951EF308D70038175C /* Favorites.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Favorites.swift; sourceTree = "<group>"; };
 		D1A627B71EF30AFA00BCD7A5 /* FavoritesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		D1A627BA1EF31BA500BCD7A5 /* SpringExpandView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringExpandView.swift; sourceTree = "<group>"; };
+		D1A627BB1EF31BA500BCD7A5 /* SpringRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpringRefresh.swift; sourceTree = "<group>"; };
+		D1A627BF1EF31C7300BCD7A5 /* NotificationBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationBar.swift; sourceTree = "<group>"; };
+		D1A627C11EF31CD100BCD7A5 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		D1B661811EF13D5800C911D7 /* Scout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Scout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1B661841EF13D5800C911D7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1B661891EF13D5800C911D7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -136,6 +144,23 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		D1A627B91EF31B9000BCD7A5 /* Spring Refresh */ = {
+			isa = PBXGroup;
+			children = (
+				D1A627BA1EF31BA500BCD7A5 /* SpringExpandView.swift */,
+				D1A627BB1EF31BA500BCD7A5 /* SpringRefresh.swift */,
+			);
+			name = "Spring Refresh";
+			sourceTree = "<group>";
+		};
+		D1A627BE1EF31C6500BCD7A5 /* NotificationBar */ = {
+			isa = PBXGroup;
+			children = (
+				D1A627BF1EF31C7300BCD7A5 /* NotificationBar.swift */,
+			);
+			name = NotificationBar;
+			sourceTree = "<group>";
+		};
 		D1B661781EF13D5800C911D7 = {
 			isa = PBXGroup;
 			children = (
@@ -161,12 +186,15 @@
 		D1B661831EF13D5800C911D7 /* Scout */ = {
 			isa = PBXGroup;
 			children = (
+				D1A627BE1EF31C6500BCD7A5 /* NotificationBar */,
+				D1A627B91EF31B9000BCD7A5 /* Spring Refresh */,
 				D1B661E91EF1562D00C911D7 /* Downloader */,
 				D1B661E21EF14D6D00C911D7 /* Extensions */,
 				D1B661DF1EF14C5A00C911D7 /* Model */,
 				D1B661FE1EF1659C00C911D7 /* Views */,
 				D1B661FF1EF165AF00C911D7 /* Controllers */,
 				D1B661841EF13D5800C911D7 /* AppDelegate.swift */,
+				D1A627C11EF31CD100BCD7A5 /* Theme.swift */,
 				D136D3931EF2EB480038175C /* Assets.xcassets */,
 				D1B661901EF13D5800C911D7 /* Info.plist */,
 			);
@@ -441,13 +469,17 @@
 				D1B662091EF2C13800C911D7 /* UIImageView+Scout.swift in Sources */,
 				D1B661F61EF1565100C911D7 /* DownloadSettings.swift in Sources */,
 				D1A627B81EF30AFA00BCD7A5 /* FavoritesViewController.swift in Sources */,
+				D1A627BC1EF31BA500BCD7A5 /* SpringExpandView.swift in Sources */,
+				D1A627BD1EF31BA500BCD7A5 /* SpringRefresh.swift in Sources */,
 				D1B661E61EF14E3F00C911D7 /* CarMake.swift in Sources */,
 				D1B661F51EF1565100C911D7 /* DownloadRequest.swift in Sources */,
 				D1B662071EF1740E00C911D7 /* ListViewController.swift in Sources */,
 				D136D3961EF308D70038175C /* Favorites.swift in Sources */,
 				D1B661F31EF1565100C911D7 /* DownloadImageManager.swift in Sources */,
+				D1A627C01EF31C7300BCD7A5 /* NotificationBar.swift in Sources */,
 				D1B661E41EF14D7D00C911D7 /* String+Scout.swift in Sources */,
 				D1B661851EF13D5800C911D7 /* AppDelegate.swift in Sources */,
+				D1A627C21EF31CD100BCD7A5 /* Theme.swift in Sources */,
 				D1B661F21EF1565100C911D7 /* DownloadError.swift in Sources */,
 				D1B661F81EF1565100C911D7 /* Logger.swift in Sources */,
 				D1B661FB1EF1570F00C911D7 /* UIImage+Scout.swift in Sources */,

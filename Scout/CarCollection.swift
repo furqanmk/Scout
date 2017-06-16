@@ -30,11 +30,20 @@ class CarCollection {
     // Currently active request
     var request: DownloadRequest<JSON>!
     
+    // Array Makes to allow cyclic loading
+    var makes: [String] = ["all", "bmw", "audi", "mercedes-benz"]
+    
     func fetch() {
         if request != nil {
             request.cancel()
         }
-        self.request = DownloadRequest<JSON>(path: "http://sumamo.de/iOS-TechChallange/api/index/make=all.json",
+        
+        // Applying reload cycling between makes
+        let make = makes[0]
+        makes.remove(at: 0)
+        makes.append(make)
+        
+        self.request = DownloadRequest<JSON>(path: "http://sumamo.de/iOS-TechChallange/api/index/make=\(make).json",
         progress: nil,
         success: { [weak self] json in
             guard let cars = json["vehicles"].array else {
@@ -49,7 +58,7 @@ class CarCollection {
             self?.delegate?.didLoadCars()
         },
         failure: { error in
-            print("Error loading movies.")
+            print("Error loading cars.")
         })
     }
     
