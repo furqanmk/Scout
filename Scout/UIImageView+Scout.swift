@@ -10,19 +10,10 @@ import UIKit
 
 public extension UIImageView {
     public func setImage(url: String) {
-        DownloadImageManager.shared.fetch(url: url, progress: nil, success: { (image) in
-            self.image = image
+        DownloadImageManager.shared.fetch(url: url, progress: nil, success: { [weak self] (image) in
+            self?.image = image
         }) { (error) in
             print(error)
         }
-        
-        DownloadImageManager.shared.fetch(url: url,
-        progress: { (part) in
-            //update your progress bars
-        }, success: { (image) in
-            //use your image
-        }, failure: { (error) in
-            //handle the error
-        })
     }
 }
