@@ -33,32 +33,20 @@ class NotificationBar {
     private var activeViewController: UIViewController? {
         let appDel = UIApplication.shared.delegate as? AppDelegate
         let window = appDel?.window
-        let navigationController = window?.rootViewController as? UINavigationController
-        return navigationController?.visibleViewController
+        let navigationController = window?.rootViewController as? UITabBarController
+        return navigationController?.selectedViewController
     }
     
     private var startY: CGFloat {
-        if ((activeViewController?.navigationController?.isNavigationBarHidden) ?? false) {
-            return -70.0
-        } else {
-            return -2.0
-        }
+        return -44
     }
     
     private var height: CGFloat {
-        if ((activeViewController?.navigationController?.isNavigationBarHidden) ?? false) {
-            return 50.0
-        } else {
-            return 30.0
-        }
+        return 30
     }
     
     private var displacment: CGFloat {
-        if ((activeViewController?.navigationController?.isNavigationBarHidden) ?? false) {
-            return 10.0
-        } else {
-            return 0.0
-        }
+        return 0
     }
     
     func show (message: String, background: UIColor = UIColor.red, permenantly permanent: Bool = false, loadingIndicator: Bool = false, completion: (() -> Void)? = nil) {
@@ -77,7 +65,6 @@ class NotificationBar {
             messageView.alpha = 0
             
             let label = UILabel(frame: CGRect(origin: CGPoint.zero, size: CGSize(width: messageView.bounds.width, height: messageView.bounds.height))).then(block: {
-                $0.center = messageView.center
                 $0.text = message
                 $0.font = font
                 $0.numberOfLines = 0
