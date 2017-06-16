@@ -29,7 +29,9 @@ class CarCell: UICollectionViewCell {
     @IBOutlet private weak var imageStack: UIStackView!
     @IBOutlet private weak var infoStack: UIStackView!
     
-    var indexPath: IndexPath?
+    var indexPath: IndexPath? {
+        didSet { tag = indexPath!.item }
+    }
     
     var favoriteToggleDelegate: FavoriteToggleDelegate?
     
@@ -37,7 +39,6 @@ class CarCell: UICollectionViewCell {
         didSet {
             if let car = car {
                 makeLabel.text = car.make?.rawValue
-                addressLabel.text = car.address
                 priceLabel.text = "€ \(car.price!)"
                 firstRegistrationLabel.text = car.firstRegistration?.beautified
                 mileageLabel.text = "\(car.mileage!) KM"
@@ -45,7 +46,8 @@ class CarCell: UICollectionViewCell {
                 fuelTypeLabel.text = car.fuelType?.rawValue
                 accidentFreeLabel.isHidden = !car.accidentFree!
                 favoriteSwitch.isOn = Favorites.ids.contains(car.id!)
-                
+                self.addressLabel.text = car.address
+
                 guard car.imageURLs.count == 4 else {
                     return
                 }
@@ -57,6 +59,7 @@ class CarCell: UICollectionViewCell {
             }
         }
     }
+
     
     @IBAction func favoriteStateToggled(_ sender: UISwitch) {
         guard let car = car else {
@@ -68,6 +71,9 @@ class CarCell: UICollectionViewCell {
         } else {
             Favorites.removeId(car.id!)
         }
+        
+        NotificationCenter.default.post(name: Notification.Name("Notification"), object: nil, userInfo: ["Nigger":"Furqan"])
+        
         
         favoriteToggleDelegate?.didToggleFavorite(cell: self)
     }

@@ -22,8 +22,6 @@
 		D1B661A51EF13D5900C911D7 /* ScoutUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B661A41EF13D5900C911D7 /* ScoutUITests.swift */; };
 		D1B661E11EF14C6D00C911D7 /* Car.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B661E01EF14C6D00C911D7 /* Car.swift */; };
 		D1B661E41EF14D7D00C911D7 /* String+Scout.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B661E31EF14D7D00C911D7 /* String+Scout.swift */; };
-		D1B661E61EF14E3F00C911D7 /* CarMake.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B661E51EF14E3F00C911D7 /* CarMake.swift */; };
-		D1B661E81EF14E4500C911D7 /* CarFuelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B661E71EF14E4500C911D7 /* CarFuelType.swift */; };
 		D1B661F21EF1565100C911D7 /* DownloadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B661EA1EF1565100C911D7 /* DownloadError.swift */; };
 		D1B661F31EF1565100C911D7 /* DownloadImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B661EB1EF1565100C911D7 /* DownloadImageManager.swift */; };
 		D1B661F41EF1565100C911D7 /* DownloadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B661EC1EF1565100C911D7 /* DownloadManager.swift */; };
@@ -82,8 +80,6 @@
 		D1B661A61EF13D5900C911D7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D1B661E01EF14C6D00C911D7 /* Car.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Car.swift; sourceTree = "<group>"; };
 		D1B661E31EF14D7D00C911D7 /* String+Scout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Scout.swift"; sourceTree = "<group>"; };
-		D1B661E51EF14E3F00C911D7 /* CarMake.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarMake.swift; sourceTree = "<group>"; };
-		D1B661E71EF14E4500C911D7 /* CarFuelType.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarFuelType.swift; sourceTree = "<group>"; };
 		D1B661EA1EF1565100C911D7 /* DownloadError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadError.swift; sourceTree = "<group>"; };
 		D1B661EB1EF1565100C911D7 /* DownloadImageManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadImageManager.swift; sourceTree = "<group>"; };
 		D1B661EC1EF1565100C911D7 /* DownloadManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DownloadManager.swift; sourceTree = "<group>"; };
@@ -224,8 +220,6 @@
 			children = (
 				D1B661E01EF14C6D00C911D7 /* Car.swift */,
 				D1B661FC1EF15D7800C911D7 /* CarCollection.swift */,
-				D1B661E51EF14E3F00C911D7 /* CarMake.swift */,
-				D1B661E71EF14E4500C911D7 /* CarFuelType.swift */,
 				D136D3951EF308D70038175C /* Favorites.swift */,
 			);
 			name = Model;
@@ -422,7 +416,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		2F05158B778B6734FD04039D /* [CP] Embed Pods Frameworks */ = {
@@ -465,13 +459,11 @@
 				D1B662051EF1725B00C911D7 /* Date+Scout.swift in Sources */,
 				D1B661F91EF1565100C911D7 /* Cache.swift in Sources */,
 				D1B662011EF166AC00C911D7 /* Layout.swift in Sources */,
-				D1B661E81EF14E4500C911D7 /* CarFuelType.swift in Sources */,
 				D1B662091EF2C13800C911D7 /* UIImageView+Scout.swift in Sources */,
 				D1B661F61EF1565100C911D7 /* DownloadSettings.swift in Sources */,
 				D1A627B81EF30AFA00BCD7A5 /* FavoritesViewController.swift in Sources */,
 				D1A627BC1EF31BA500BCD7A5 /* SpringExpandView.swift in Sources */,
 				D1A627BD1EF31BA500BCD7A5 /* SpringRefresh.swift in Sources */,
-				D1B661E61EF14E3F00C911D7 /* CarMake.swift in Sources */,
 				D1B661F51EF1565100C911D7 /* DownloadRequest.swift in Sources */,
 				D1B662071EF1740E00C911D7 /* ListViewController.swift in Sources */,
 				D136D3961EF308D70038175C /* Favorites.swift in Sources */,

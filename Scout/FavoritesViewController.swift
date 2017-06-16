@@ -15,6 +15,16 @@ class FavoritesViewController: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         collectionView?.reloadData()
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        if CarCollection.shared.favorites.count == 0 {
+            NotificationBar.sharedBar.show(message: "No car has been favorited yet", background: Theme.orange, permenantly: true, loadingIndicator: false, completion: nil)
+        }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        NotificationBar.sharedBar.hide()
+    }
 
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -26,8 +36,8 @@ class FavoritesViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CarCell
-        cell.car = CarCollection.shared.favorites[indexPath.item]
         cell.indexPath = indexPath
+        cell.car = CarCollection.shared.favorites[indexPath.item]
         cell.favoriteToggleDelegate = self
         return cell
     }

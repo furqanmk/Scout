@@ -31,7 +31,7 @@ class CarCollection {
     var request: DownloadRequest<JSON>!
     
     // Array Makes to allow cyclic loading
-    var makes: [String] = ["all", "bmw", "audi", "mercedes-benz"]
+    var makes: [String] = ["all", "BMW", "Audi", "Mercedes-Benz"]
     
     func fetch() {
         if request != nil {
@@ -43,7 +43,7 @@ class CarCollection {
         makes.remove(at: 0)
         makes.append(make)
         
-        self.request = DownloadRequest<JSON>(path: "http://sumamo.de/iOS-TechChallange/api/index/make=\(make).json",
+        self.request = DownloadRequest<JSON>(path: "http://sumamo.de/iOS-TechChallange/api/index/make=\(make.lowercased()).json",
         progress: nil,
         success: { [weak self] json in
             guard let cars = json["vehicles"].array else {
