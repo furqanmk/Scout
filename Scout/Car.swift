@@ -9,24 +9,36 @@
 import Foundation
 import SwiftyJSON
 
-class Car {
-    var id: Int?
-    var firstRegistration: Date?
-    var address: String?
-    var make: CarMake?
-    var fuelType: CarFuelType?
-    var powerKW: Int?
-    var price: Int?
-    var mileage: Int?
-    var accidentFree: Bool?
+struct Car {
+    
+    enum FuelType: String {
+        case Diesel
+        case Benzin
+    }
+    
+    enum Make: String {
+        case BMW
+        case Audi
+        case Mercedes = "Mercedes-Benz"
+    }
+    
+    let id: Int?
+    let firstRegistration: Date?
+    let address: String?
+    let make: Make?
+    let fuelType: FuelType?
+    let powerKW: Int?
+    let price: Int?
+    let mileage: Int?
+    let accidentFree: Bool?
     var imageURLs: [String] = []
     
     init(json: JSON) {
         self.id = json["ID"].int
-        self.firstRegistration = json["FirstRegistration"].string?.scoutDate
+        self.firstRegistration = json["FirstRegistration"].stringValue.scoutDate
         self.address = json["Address"].string
-        self.make = CarMake(rawValue: json["Make"].string!)
-        self.fuelType = CarFuelType(rawValue: json["FuelType"].string!)
+        self.make = Make(rawValue: json["Make"].string!)
+        self.fuelType = FuelType(rawValue: json["FuelType"].string!)
         self.powerKW = json["PowerKW"].int
         self.price = json["Price"].int
         self.mileage = json["Mileage"].int
