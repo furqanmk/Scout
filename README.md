@@ -21,15 +21,15 @@ iPhone 5, iPhone 6 simulators.
 
 ### Features
 - Load cars available for sale in a very neat interface.
-- View the following information for each vehicle:
-* Make
-* Price
-* Power
-* Fuel Type
-* Mileage (KM)
-* First Registration Date
-* Address of seller
-* Images
+- View the following information for each vehicle:  
+    * Make
+    * Price
+    * Power
+    * Fuel Type
+    * Mileage (KM)
+    * First Registration Date
+    * Address of seller
+    * Images
 
 - Add cars to your favorite list by using a toggle switch.
 - View the total count of favorite cars on the bottom tab bar.
