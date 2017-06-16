@@ -17,19 +17,45 @@ class ListViewController: UICollectionViewController {
         
         CarCollection.shared.delegate = self
         CarCollection.shared.fetch()
+        NotificationBar.sharedBar.show(message: "Loading \(CarCollection.shared.makes[0].uppercased()) models...", background: Theme.orange, permenantly: true, loadingIndicator: true, completion: nil)
         
+        // Sets up pull-to-refresh
         setupPullToRefresh()
+        
+        // Sets badge
+        tabBarController?.tabBar.items?.last?.badgeColor = Theme.orange
+        showBadgeUpdated()
+        
+        // Listens to favorite notification to update the badge
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("Notification"), object: nil, queue: nil) { (notification) in
+            self.showBadgeUpdated()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
         collectionView?.reloadData()
+        showBadgeUpdated()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        hideBadge()
+    }
+    
+    /// Shows updated count of favorites on the badge
+    func showBadgeUpdated() {
+        self.tabBarController?.tabBar.items?.last?.badgeValue = "\(CarCollection.shared.favorites.count)"
+    }
+    
+    /// Hides badge
+    func hideBadge() {
+        self.tabBarController?.tabBar.items?.last?.badgeValue = nil
     }
     
     /// Allows pull to refresh
     func setupPullToRefresh() {
         let spring = collectionView?.addSpringRefresh(position: .top, actionHandlere: { _ in
             
-            NotificationBar.sharedBar.show(message: "Loading...", background: Theme.orange, permenantly: true, loadingIndicator: true, completion: nil)
+            NotificationBar.sharedBar.show(message: "Loading \(CarCollection.shared.makes[0]) models...", background: Theme.orange, permenantly: true, loadingIndicator: true, completion: nil)
             
             CarCollection.shared.fetch()
         })
@@ -53,8 +79,7 @@ extension ListViewController {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CarCell
-        
-        print(indexPath.item)
+        cell.indexPath = indexPath
         cell.car = CarCollection.shared.list[indexPath.item]
         return cell
     }
@@ -71,10 +96,13 @@ extension ListViewController {
 /// Handles the result of car load
 extension ListViewController: CarCollectionDelegate {
     func didLoadCars() {
-        NotificationBar.sharedBar.hide()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            DispatchQueue.main.async {
+                NotificationBar.sharedBar.hide()
+            }
+        }
+        
         collectionView?.reloadData()
-        print("TOTAL")
-        print(CarCollection.shared.list.count)
-        print("IndexPath Items")
     }
 }
+
