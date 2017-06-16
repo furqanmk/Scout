@@ -27,6 +27,7 @@ class ListViewController: UICollectionViewController {
         
         // Listens to favorite notification to update the badge
         NotificationCenter.default.addObserver(forName: NSNotification.Name("Notification"), object: nil, queue: nil) { (notification) in
+            guard self.tabBarController?.selectedViewController == self else { return }
             self.showBadgeUpdated()
         }
     }

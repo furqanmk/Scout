@@ -12,6 +12,18 @@ private let reuseIdentifier = "FavoriteCell"
 
 class FavoritesViewController: UICollectionViewController {
 
+    override func viewDidLoad() {
+        // Listens to favorite notification to update the badge
+        NotificationCenter.default.addObserver(forName: NSNotification.Name("Notification"), object: nil, queue: nil) { (notification) in
+            guard self.tabBarController?.selectedViewController == self,
+            let cell = notification.userInfo?["cell"] as? UICollectionViewCell,
+            let indexPath = self.collectionView?.indexPath(for: cell) else {
+                return
+            }
+            self.collectionView?.deleteItems(at: [indexPath])
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         collectionView?.reloadData()
     }
@@ -38,7 +50,6 @@ class FavoritesViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! CarCell
         cell.indexPath = indexPath
         cell.car = CarCollection.shared.favorites[indexPath.item]
-        cell.favoriteToggleDelegate = self
         return cell
     }
     
@@ -50,12 +61,4 @@ class FavoritesViewController: UICollectionViewController {
         }
     }
 
-}
-
-extension FavoritesViewController: FavoriteToggleDelegate {
-    
-    func didToggleFavorite(cell: UICollectionViewCell) {
-        guard let indexPath = collectionView?.indexPath(for: cell) else { return }
-        collectionView?.deleteItems(at: [indexPath])
-    }
 }

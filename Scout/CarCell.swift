@@ -9,10 +9,6 @@
 import Foundation
 import UIKit
 
-protocol FavoriteToggleDelegate {
-    func didToggleFavorite(cell: UICollectionViewCell)
-}
-
 class CarCell: UICollectionViewCell {
     
     @IBOutlet weak var backdropView: UIView!
@@ -34,8 +30,6 @@ class CarCell: UICollectionViewCell {
     var indexPath: IndexPath? {
         didSet { tag = indexPath!.item }
     }
-    
-    var favoriteToggleDelegate: FavoriteToggleDelegate?
     
     var car: Car? {
         didSet {
@@ -74,10 +68,7 @@ class CarCell: UICollectionViewCell {
             Favorites.removeId(car.id!)
         }
         
-        NotificationCenter.default.post(name: Notification.Name("Notification"), object: nil, userInfo: ["Nigger":"Furqan"])
-        
-        
-        favoriteToggleDelegate?.didToggleFavorite(cell: self)
+        NotificationCenter.default.post(name: Notification.Name("Notification"), object: nil, userInfo: ["cell": self])
     }
     
     
