@@ -24,7 +24,7 @@ class CarCollection {
     
     // Returns only the favorited cars
     var favorites: [Car] {
-        return list.filter({ Favorites.ids.contains($0.id!) })
+        return list.filter({ Favorites.ids.contains($0.id) })
     }
     
     // Currently active request
@@ -52,7 +52,7 @@ class CarCollection {
             self?.list.removeAll()
             
             for item in cars {
-                let car = Car(json: item)
+                guard let car = Car(json: item) else { continue }
                 self?.list.append(car)
             }
             self?.delegate?.didLoadCars()

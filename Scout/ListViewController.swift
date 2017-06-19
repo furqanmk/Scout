@@ -84,7 +84,7 @@ extension ListViewController {
         cell.car = car
         
         // Grays out cars that are not accident-free
-        if !car.accidentFree! {
+        if !car.accidentFree {
             cell.backdropView.backgroundColor = Theme.gray
             cell.favoriteSwitch.isEnabled = false
         } else {

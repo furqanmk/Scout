@@ -34,14 +34,14 @@ class CarCell: UICollectionViewCell {
     var car: Car? {
         didSet {
             if let car = car {
-                makeLabel.text = car.make?.rawValue
-                priceLabel.text = "€ \(car.price!)"
-                firstRegistrationLabel.text = car.firstRegistration?.beautified
-                mileageLabel.text = "\(car.mileage!) KM"
-                powerLabel.text = "\(car.powerKW!) KW"
-                fuelTypeLabel.text = car.fuelType?.rawValue
-                accidentFreeLabel.isHidden = !car.accidentFree!
-                favoriteSwitch.isOn = Favorites.ids.contains(car.id!)
+                makeLabel.text = car.make.rawValue
+                priceLabel.text = "€ \(car.price)"
+                firstRegistrationLabel.text = car.firstRegistration.beautified
+                mileageLabel.text = "\(car.mileage) KM"
+                powerLabel.text = "\(car.powerKW) KW"
+                fuelTypeLabel.text = car.fuelType.rawValue
+                accidentFreeLabel.isHidden = !car.accidentFree
+                favoriteSwitch.isOn = Favorites.ids.contains(car.id)
                 addressLabel.text = car.address
                 
                 guard car.imageURLs.count == 4 else {
@@ -63,9 +63,9 @@ class CarCell: UICollectionViewCell {
         }
         
         if sender.isOn {
-            Favorites.addId(car.id!)
+            Favorites.addId(car.id)
         } else {
-            Favorites.removeId(car.id!)
+            Favorites.removeId(car.id)
         }
         
         NotificationCenter.default.post(name: Notification.Name("Notification"), object: nil, userInfo: ["cell": self])
